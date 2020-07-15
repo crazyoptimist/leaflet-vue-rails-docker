@@ -3,7 +3,7 @@
 ## Run using docker-compose
 Prepare your .env files in be, fe directories as well as in project root.
 ```shell
-cp .env.example .env    # In backend, frontend, and one more for mongodb. (I am dotenv fan :XD)
+cp .env.example .env    # In backend, frontend, and one more for mongodb. (I am a big fan of dotenv. :XD)
 ```
 Run the whole app by simply typing:
 ```shell
