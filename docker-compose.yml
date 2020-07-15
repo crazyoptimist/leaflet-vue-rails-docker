@@ -1,0 +1,35 @@
+version: "3"
+
+services: 
+
+  mongodb: 
+    container_name: mongo
+    image: mongo:bionic
+    volumes: 
+      - ./db_data/:/data/db/
+    restart: always
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+
+  rails_api:
+    container_name: backend
+    build: be-rails
+    depends_on: 
+      - mongodb
+    ports: 
+      - 3000:3000
+    command: bash -c "cd /app && rails s -b 0.0.0.0"
+    restart: always
+  
+  vue_app:
+    container_name: frontend
+    build: fe-vue
+    depends_on: 
+      - mongodb
+      - rails_api
+    ports: 
+      - 8080:8080
+    command: sh -c "cd /app && yarn serve"
+    restart: always
+    

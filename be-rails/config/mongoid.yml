@@ -1,0 +1,26 @@
+development:
+  clients:
+    default:
+      database: <%= ENV.fetch("DATABASE_NAME") %>
+      hosts:
+        - <%= ENV.fetch("DATABASE_HOST") %>
+      options:
+        user: <%= ENV.fetch("DATABASE_USER") %>
+        password: <%= ENV.fetch("DATABASE_PASSWORD") %>
+        roles:
+          - 'dbOwner'
+        auth_source: admin
+  options:
+
+test:
+  clients:
+    default:
+      database: leaflet_rails_mongo_api_test
+      hosts:
+        - <%= ENV.fetch("DATABASE_HOST") %>
+      options:
+        user: <%= ENV.fetch("DATABASE_USER") %>
+        password: <%= ENV.fetch("DATABASE_PASSWORD") %>
+        roles:
+          - 'dbOwner'
+        auth_source: admin
