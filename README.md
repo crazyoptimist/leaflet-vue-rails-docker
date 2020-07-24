@@ -1,5 +1,7 @@
 # Leaflet POC built with Rails API and Vue
 
+<img src="https://i.ibb.co/syrR4FB/poc.jpg" alt="poc" border="0" />
+
 ## Run using docker-compose
 Prepare your .env files in be, fe directories as well as in project root.
 ```shell
